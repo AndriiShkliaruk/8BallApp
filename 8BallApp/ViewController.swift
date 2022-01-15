@@ -8,12 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let ballView = BallView()
+    
+    override func loadView() {
+        view = ballView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        ballView.messageLabel.text = "Shake to see the answer"
     }
-
-
+    
+    
 }
 

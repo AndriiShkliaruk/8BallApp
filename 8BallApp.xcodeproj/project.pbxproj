@@ -13,6 +13,7 @@
 		F955B66F2792046B00FDEE04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F955B66D2792046B00FDEE04 /* Main.storyboard */; };
 		F955B6712792046D00FDEE04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F955B6702792046D00FDEE04 /* Assets.xcassets */; };
 		F955B6742792046D00FDEE04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F955B6722792046D00FDEE04 /* LaunchScreen.storyboard */; };
+		F955B67F279209DF00FDEE04 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B67E279209DF00FDEE04 /* BallView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F955B6702792046D00FDEE04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F955B6732792046D00FDEE04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F955B6752792046D00FDEE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F955B67E279209DF00FDEE04 /* BallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,9 @@
 		F955B6662792046B00FDEE04 /* 8BallApp */ = {
 			isa = PBXGroup;
 			children = (
+				F955B67D2792099900FDEE04 /* Models */,
+				F955B67C2792098F00FDEE04 /* Controllers */,
+				F955B67B2792098300FDEE04 /* Views */,
 				F955B6672792046B00FDEE04 /* AppDelegate.swift */,
 				F955B6692792046B00FDEE04 /* SceneDelegate.swift */,
 				F955B66B2792046B00FDEE04 /* ViewController.swift */,
@@ -65,6 +70,28 @@
 				F955B6752792046D00FDEE04 /* Info.plist */,
 			);
 			path = 8BallApp;
+			sourceTree = "<group>";
+		};
+		F955B67B2792098300FDEE04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F955B67E279209DF00FDEE04 /* BallView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F955B67C2792098F00FDEE04 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F955B67D2792099900FDEE04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +168,7 @@
 				F955B66C2792046B00FDEE04 /* ViewController.swift in Sources */,
 				F955B6682792046B00FDEE04 /* AppDelegate.swift in Sources */,
 				F955B66A2792046B00FDEE04 /* SceneDelegate.swift in Sources */,
+				F955B67F279209DF00FDEE04 /* BallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
