@@ -30,6 +30,7 @@ class BallView: UIView {
     let settingsButton: UIButton = {
         let button = UIButton(type: .system)
         let gearIcon = UIImage(systemName: "gearshape.fill")
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(gearIcon, for: .normal)
         button.tintColor = .gray
         return button
@@ -37,34 +38,40 @@ class BallView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        createSubviews()
+        setupView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        createSubviews()
+        setupView()
     }
-
-    func createSubviews() {
+    
+    private func setupView() {
         backgroundColor = .white
         addSubview(ballImageView)
         addSubview(messageLabel)
         addSubview(settingsButton)
+        setupLayout()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        ballImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        ballImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        ballImageView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor, multiplier: 0.9).isActive = true
-        ballImageView.heightAnchor.constraint(lessThanOrEqualTo: self.heightAnchor, multiplier: 0.9).isActive = true
+
+    private func setupLayout() {
+        ballImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        ballImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        ballImageView.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 0.9).isActive = true
+        ballImageView.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.9).isActive = true
         
-        messageLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 15).isActive = true
+        messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 15).isActive = true
         messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
-        settingsButton.frame = CGRect(x: frame.width - safeAreaInsets.right - 60, y: safeAreaInsets.top, width: 60, height: 60)
-        
+        settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        settingsButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        settingsButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
     }
+    
+    
+    
+
     
 }

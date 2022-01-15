@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BallViewController: UIViewController {
     let ballView = BallView()
     
     override func loadView() {
