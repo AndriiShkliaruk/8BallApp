@@ -16,6 +16,8 @@
 		F955B67F279209DF00FDEE04 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B67E279209DF00FDEE04 /* BallView.swift */; };
 		F955B6812792E94900FDEE04 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6802792E94900FDEE04 /* SettingsView.swift */; };
 		F955B6832792EA0100FDEE04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6822792EA0100FDEE04 /* SettingsTableViewController.swift */; };
+		F955B685279354CA00FDEE04 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B684279354C900FDEE04 /* NetworkManager.swift */; };
+		F955B687279355B400FDEE04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B686279355B400FDEE04 /* AnswerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F955B67E279209DF00FDEE04 /* BallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
 		F955B6802792E94900FDEE04 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F955B6822792EA0100FDEE04 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F955B684279354C900FDEE04 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F955B686279355B400FDEE04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 		F955B67D2792099900FDEE04 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F955B684279354C900FDEE04 /* NetworkManager.swift */,
+				F955B686279355B400FDEE04 /* AnswerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 				F955B6812792E94900FDEE04 /* SettingsView.swift in Sources */,
 				F955B66C2792046B00FDEE04 /* BallViewController.swift in Sources */,
 				F955B6832792EA0100FDEE04 /* SettingsTableViewController.swift in Sources */,
+				F955B685279354CA00FDEE04 /* NetworkManager.swift in Sources */,
 				F955B6682792046B00FDEE04 /* AppDelegate.swift in Sources */,
+				F955B687279355B400FDEE04 /* AnswerModel.swift in Sources */,
 				F955B66A2792046B00FDEE04 /* SceneDelegate.swift in Sources */,
 				F955B67F279209DF00FDEE04 /* BallView.swift in Sources */,
 			);
