@@ -12,8 +12,6 @@
 		F955B66C2792046B00FDEE04 /* BallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B66B2792046B00FDEE04 /* BallViewController.swift */; };
 		F955B6712792046D00FDEE04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F955B6702792046D00FDEE04 /* Assets.xcassets */; };
 		F955B67F279209DF00FDEE04 /* BallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B67E279209DF00FDEE04 /* BallView.swift */; };
-		F955B6812792E94900FDEE04 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6802792E94900FDEE04 /* SettingsView.swift */; };
-		F955B6832792EA0100FDEE04 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6822792EA0100FDEE04 /* SettingsTableViewController.swift */; };
 		F955B687279355B400FDEE04 /* AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B686279355B400FDEE04 /* AnswerModel.swift */; };
 		F955B6892793628800FDEE04 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6882793628800FDEE04 /* DataFetcher.swift */; };
 		F955B6B127948EAD00FDEE04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6B027948EAD00FDEE04 /* SceneDelegate.swift */; };
@@ -26,8 +24,6 @@
 		F955B66B2792046B00FDEE04 /* BallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewController.swift; sourceTree = "<group>"; };
 		F955B6702792046D00FDEE04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F955B67E279209DF00FDEE04 /* BallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallView.swift; sourceTree = "<group>"; };
-		F955B6802792E94900FDEE04 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F955B6822792EA0100FDEE04 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F955B686279355B400FDEE04 /* AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModel.swift; sourceTree = "<group>"; };
 		F955B6882793628800FDEE04 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		F955B6B027948EAD00FDEE04 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				F955B67E279209DF00FDEE04 /* BallView.swift */,
-				F955B6802792E94900FDEE04 /* SettingsView.swift */,
 				F90ADB452794950D006D9516 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -89,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				F955B66B2792046B00FDEE04 /* BallViewController.swift */,
-				F955B6822792EA0100FDEE04 /* SettingsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,10 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F955B6812792E94900FDEE04 /* SettingsView.swift in Sources */,
 				F955B66C2792046B00FDEE04 /* BallViewController.swift in Sources */,
 				F955B6B127948EAD00FDEE04 /* SceneDelegate.swift in Sources */,
-				F955B6832792EA0100FDEE04 /* SettingsTableViewController.swift in Sources */,
 				F955B6682792046B00FDEE04 /* AppDelegate.swift in Sources */,
 				F955B687279355B400FDEE04 /* AnswerModel.swift in Sources */,
 				F955B6892793628800FDEE04 /* DataFetcher.swift in Sources */,
