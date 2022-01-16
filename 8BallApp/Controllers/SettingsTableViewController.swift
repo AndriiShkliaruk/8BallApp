@@ -16,6 +16,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view = settingsView
+       setupNavigationBar()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,6 +30,10 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return answers.count
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Settings"
     }
 
     /*

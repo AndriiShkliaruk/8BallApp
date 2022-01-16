@@ -15,17 +15,25 @@ class BallViewController: UIViewController {
     private var answer = ""
     let tempMessage = "No connection"
     
+    private lazy var settingsBarButtonItem: UIBarButtonItem = {
+        let gearIcon = UIImage(systemName: "gearshape.fill")
+        return UIBarButtonItem(image: gearIcon, style: .plain, target: self, action: #selector(settingsBarButtonTapped))
+    }()
+    
     override func loadView() {
         view = ballView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         ballView.messageLabel.text = callToShakeText
-        
-        
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        settingsBarButtonItem.tintColor = .gray
+        navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
     
     private func updateMessageLabel(message: String) {
@@ -33,6 +41,9 @@ class BallViewController: UIViewController {
             self.ballView.messageLabel.text = message
         }
     }
+    
+    
+    // MARK: - User interaction events
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         updateMessageLabel(message: "")
@@ -55,6 +66,11 @@ class BallViewController: UIViewController {
 
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         updateMessageLabel(message: callToShakeText)
+    }
+    
+    @objc func settingsBarButtonTapped(_ sender:UIButton!) {
+        let settingsViewController = SettingsTableViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
 }

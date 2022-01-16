@@ -27,15 +27,6 @@ class BallView: UIView {
         return label
     }()
     
-    let settingsButton: UIButton = {
-        let button = UIButton(type: .system)
-        let gearIcon = UIImage(systemName: "gearshape.fill")
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(gearIcon, for: .normal)
-        button.tintColor = .gray
-        return button
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -50,7 +41,6 @@ class BallView: UIView {
         backgroundColor = .white
         addSubview(ballImageView)
         addSubview(messageLabel)
-        addSubview(settingsButton)
         setupLayout()
     }
 
@@ -63,11 +53,6 @@ class BallView: UIView {
         messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 15).isActive = true
         messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        settingsButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        settingsButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        settingsButton.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor).isActive = true
     }
     
     
