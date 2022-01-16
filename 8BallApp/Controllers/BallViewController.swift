@@ -32,7 +32,7 @@ class BallViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        settingsBarButtonItem.tintColor = .gray
+        navigationController?.navigationBar.tintColor = .gray
         navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
     

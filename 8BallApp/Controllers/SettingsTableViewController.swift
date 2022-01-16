@@ -15,14 +15,15 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view = settingsView
+        view.addSubview(settingsView)
+        //settingsView.register(UITableViewCell.self, forCellReuseIdentifier: "answerCell")
+        settingsView.register(UITableViewCell.self, forCellReuseIdentifier: "answerCell")
        setupNavigationBar()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Settings"
+        navigationItem.backBarButtonItem?.tintColor = .gray
     }
 
     // MARK: - Table view data source
@@ -32,19 +33,17 @@ class SettingsTableViewController: UITableViewController {
         return answers.count
     }
     
-    private func setupNavigationBar() {
-        navigationItem.title = "Settings"
-    }
+   
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = settingsView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        content.text = answers[indexPath.row]
+        cell.contentConfiguration = content
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
