@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F90ADB462794950E006D9516 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90ADB452794950D006D9516 /* LaunchScreen.storyboard */; };
 		F90ADB732795CFBD006D9516 /* StoredAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ADB722795CFBD006D9516 /* StoredAnswers.swift */; };
+		F90ADB752795D043006D9516 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ADB742795D043006D9516 /* SettingsViewController.swift */; };
 		F955B6682792046B00FDEE04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B6672792046B00FDEE04 /* AppDelegate.swift */; };
 		F955B66C2792046B00FDEE04 /* BallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F955B66B2792046B00FDEE04 /* BallViewController.swift */; };
 		F955B6712792046D00FDEE04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F955B6702792046D00FDEE04 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		F90ADB452794950D006D9516 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F90ADB722795CFBD006D9516 /* StoredAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredAnswers.swift; sourceTree = "<group>"; };
+		F90ADB742795D043006D9516 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F955B6642792046B00FDEE04 /* 8BallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 8BallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F955B6672792046B00FDEE04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F955B66B2792046B00FDEE04 /* BallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				F955B66B2792046B00FDEE04 /* BallViewController.swift */,
+				F90ADB742795D043006D9516 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				F955B6892793628800FDEE04 /* DataFetcher.swift in Sources */,
 				F955B67F279209DF00FDEE04 /* BallView.swift in Sources */,
 				F90ADB732795CFBD006D9516 /* StoredAnswers.swift in Sources */,
+				F90ADB752795D043006D9516 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
