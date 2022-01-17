@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let ballApiURL: String = "https://8ball.delegator.com/magic/JSON/whokilledkennedy"
+public let ballApiURL: String = "https://8ball.delegator.com/magic/JSON/question"
 
 struct BallResponse: Decodable {
     let magic: Magic
