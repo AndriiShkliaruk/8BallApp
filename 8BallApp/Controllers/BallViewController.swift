@@ -7,6 +7,7 @@
 
 import UIKit
 import AudioToolbox
+import SwiftSpinner
 
 class BallViewController: UIViewController {
     
@@ -54,6 +55,7 @@ class BallViewController: UIViewController {
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             updateMessageLabel(message: "")
+            SwiftSpinner.show("Loading...")
         }
     }
 
@@ -69,6 +71,7 @@ class BallViewController: UIViewController {
                     self.updateMessageLabel(message: results.magic.answer)
                 }
             }
+            SwiftSpinner.hide()
             UIDevice.vibrate()
         }
     }
