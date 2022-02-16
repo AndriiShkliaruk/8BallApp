@@ -35,9 +35,9 @@ class BallViewController: UIViewController {
         navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
     
-    private func updateMessageLabel(message: String) {
+    private func updateMessageLabelText(_ text: String) {
         DispatchQueue.main.async {
-            self.ballView.messageLabel.text = message
+            self.ballView.messageLabel.text = text
         }
     }
     
@@ -54,7 +54,7 @@ class BallViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            updateMessageLabel(message: "")
+            updateMessageLabelText("")
             SwiftSpinner.show("Loading...")
         }
     }
@@ -66,9 +66,9 @@ class BallViewController: UIViewController {
                 switch result {
                 case .failure:
                     
-                    self.updateMessageLabel(message: self.getRandomAnswer())
+                    self.updateMessageLabelText(self.getRandomAnswer())
                 case .success(let results):
-                    self.updateMessageLabel(message: results.magic.answer)
+                    self.updateMessageLabelText(results.magic.answer)
                 }
             }
             SwiftSpinner.hide()
@@ -77,7 +77,7 @@ class BallViewController: UIViewController {
     }
 
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        updateMessageLabel(message: callToShakeText)
+        updateMessageLabelText(callToShakeText)
     }
     
     @objc func settingsBarButtonTapped(_ sender:UIButton!) {
