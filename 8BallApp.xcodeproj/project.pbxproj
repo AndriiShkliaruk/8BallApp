@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BFDA2AFAFBD7C38B99B40F7 /* Pods_8BallApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE4B36BDAFF93317E0012D5C /* Pods_8BallApp.framework */; };
 		F90ADB462794950E006D9516 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90ADB452794950D006D9516 /* LaunchScreen.storyboard */; };
 		F90ADB732795CFBD006D9516 /* StoredAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ADB722795CFBD006D9516 /* StoredAnswers.swift */; };
 		F90ADB752795D043006D9516 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90ADB742795D043006D9516 /* SettingsViewController.swift */; };
@@ -21,9 +20,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25F895B1022AB538382D0C34 /* Pods-8BallApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-8BallApp.release.xcconfig"; path = "Target Support Files/Pods-8BallApp/Pods-8BallApp.release.xcconfig"; sourceTree = "<group>"; };
-		AE4B36BDAFF93317E0012D5C /* Pods_8BallApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_8BallApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3897D600582BD4ED161CECA /* Pods-8BallApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-8BallApp.debug.xcconfig"; path = "Target Support Files/Pods-8BallApp/Pods-8BallApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F90ADB452794950D006D9516 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F90ADB722795CFBD006D9516 /* StoredAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredAnswers.swift; sourceTree = "<group>"; };
 		F90ADB742795D043006D9516 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -43,38 +39,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BFDA2AFAFBD7C38B99B40F7 /* Pods_8BallApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		327EC18C4718EC234FC858BA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AE4B36BDAFF93317E0012D5C /* Pods_8BallApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7169B0237E713E74844FF8C2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C3897D600582BD4ED161CECA /* Pods-8BallApp.debug.xcconfig */,
-				25F895B1022AB538382D0C34 /* Pods-8BallApp.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		F955B65B2792046B00FDEE04 = {
 			isa = PBXGroup;
 			children = (
 				F955B6662792046B00FDEE04 /* 8BallApp */,
 				F955B6652792046B00FDEE04 /* Products */,
-				7169B0237E713E74844FF8C2 /* Pods */,
-				327EC18C4718EC234FC858BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,11 +110,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F955B6782792046D00FDEE04 /* Build configuration list for PBXNativeTarget "8BallApp" */;
 			buildPhases = (
-				EDDE8561A9711F6C4D73F951 /* [CP] Check Pods Manifest.lock */,
 				F955B6602792046B00FDEE04 /* Sources */,
 				F955B6612792046B00FDEE04 /* Frameworks */,
 				F955B6622792046B00FDEE04 /* Resources */,
-				3F8E62EE08852B298313A607 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -194,48 +167,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3F8E62EE08852B298313A607 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-8BallApp/Pods-8BallApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-8BallApp/Pods-8BallApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-8BallApp/Pods-8BallApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDDE8561A9711F6C4D73F951 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-8BallApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F955B6602792046B00FDEE04 /* Sources */ = {
@@ -374,7 +305,6 @@
 		};
 		F955B6792792046D00FDEE04 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3897D600582BD4ED161CECA /* Pods-8BallApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -402,7 +332,6 @@
 		};
 		F955B67A2792046D00FDEE04 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25F895B1022AB538382D0C34 /* Pods-8BallApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
