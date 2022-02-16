@@ -10,7 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
-    var answers = [String]()
+    var answersArray = [String]()
     
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
@@ -27,12 +27,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         setupNavigationBar()
-        answers = StoredAnswers.load()
+        answersArray = StoredAnswers.load()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        StoredAnswers.save(answers)
+        StoredAnswers.save(answersArray)
     }
     
     private func setupNavigationBar() {
@@ -45,15 +45,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: - Table view methods
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answers.count
+        return answersArray.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
-        if !answers.isEmpty {
+        if !answersArray.isEmpty {
             var content = cell.defaultContentConfiguration()
-            content.text = answers[indexPath.row]
+            content.text = answersArray[indexPath.row]
             cell.contentConfiguration = content
         }
         
@@ -62,8 +62,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStylefor: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        if editingStylefor == .delete, index < answers.count {
-                answers.remove(at: index)
+        if editingStylefor == .delete, index < answersArray.count {
+                answersArray.remove(at: index)
                 tableView.reloadData()
             }
         }
@@ -78,7 +78,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         let action = UIAlertAction(title: "Add", style: .default) { _ in
             guard let answer = alert.textFields?.first?.text else { return }
-            self.answers.append(answer)
+            self.answersArray.append(answer)
             self.tableView.reloadData()
         }
         alert.addAction(action)
