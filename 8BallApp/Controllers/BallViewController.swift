@@ -22,7 +22,7 @@ class BallViewController: UIViewController {
     override func loadView() {
         view = ballView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,14 +58,13 @@ class BallViewController: UIViewController {
             SwiftSpinner.show("Loading...")
         }
     }
-
+    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             let url = URL(string: ballApiURL)
             DataFetcher.get(from: url!) { (result: Result<BallResponse, DataError>) in
                 switch result {
                 case .failure:
-                    
                     self.updateMessageLabelText(self.getRandomAnswer())
                 case .success(let results):
                     self.updateMessageLabelText(results.magic.answer)
@@ -75,7 +74,7 @@ class BallViewController: UIViewController {
             UIDevice.vibrate()
         }
     }
-
+    
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         updateMessageLabelText(callToShakeText)
     }
