@@ -10,7 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let tableView = UITableView()
-    var answersArray = [String]()
+    var answers = [String]()
     
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
@@ -22,17 +22,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "answerCell")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
-        answersArray = StoredAnswers.load()
+        answers = StoredAnswers.load()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        StoredAnswers.save(answersArray)
+        
+        StoredAnswers.save(answers)
     }
     
     private func setupNavigationBar() {
@@ -43,30 +44,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     //MARK: - Table view methods
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answersArray.count
+        return answers.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "answerCell", for: indexPath)
-        if !answersArray.isEmpty {
+        if !answers.isEmpty {
             var content = cell.defaultContentConfiguration()
-            content.text = answersArray[indexPath.row]
+            content.text = answers[indexPath.row]
             cell.contentConfiguration = content
         }
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStylefor: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        if editingStylefor == .delete, index < answersArray.count {
-                answersArray.remove(at: index)
-                tableView.reloadData()
-            }
+        if editingStylefor == .delete, index < answers.count {
+            answers.remove(at: index)
+            tableView.reloadData()
         }
+    }
     
     
     // MARK: - User interaction methods
@@ -78,12 +78,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         let action = UIAlertAction(title: "Add", style: .default) { _ in
             guard let answer = alert.textFields?.first?.text else { return }
-            self.answersArray.append(answer)
+            self.answers.append(answer)
             self.tableView.reloadData()
         }
         alert.addAction(action)
         present(alert, animated: true)
     }
     
-
+    
 }
