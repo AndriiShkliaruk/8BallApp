@@ -1,13 +1,11 @@
 //
-//  AnswerModel.swift
+//  Answer.swift
 //  8BallApp
 //
 //  Created by Andrii Shkliaruk on 15.01.2022.
 //
 
 import Foundation
-
-public let ballApiURL: String = "https://8ball.delegator.com/magic/JSON/question"
 
 struct BallResponse: Decodable {
     let magic: Magic

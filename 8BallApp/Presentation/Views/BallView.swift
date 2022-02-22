@@ -8,12 +8,12 @@
 import UIKit
 
 class BallView: UIView {
-    
     private let ballImageView: UIImageView = {
-        let image = UIImage(named: "8ball.png")
+        let image = UIImage(named: Constants.ballImageName)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
@@ -24,16 +24,19 @@ class BallView: UIView {
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .center
+        
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
         setupView()
     }
     
@@ -54,9 +57,4 @@ class BallView: UIView {
         messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 15).isActive = true
         messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
     }
-    
-    
-    
-
-    
 }

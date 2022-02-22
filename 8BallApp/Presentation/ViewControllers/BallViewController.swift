@@ -10,28 +10,28 @@ import AudioToolbox
 import SwiftSpinner
 
 class BallViewController: UIViewController {
-    
     private let ballView = BallView()
-    private let callToShakeText = "Shake to see the answer"
+    private var viewModel = BallViewModel()
+    var coordinator: MainCoordinator?
     
     private lazy var settingsBarButtonItem: UIBarButtonItem = {
-        let gearIcon = UIImage(systemName: "gearshape.fill")
-        return UIBarButtonItem(image: gearIcon, style: .plain, target: self, action: #selector(settingsBarButtonTapped))
+        let icon = UIImage(systemName: viewModel.settingsIconName)
+        return UIBarButtonItem(image: icon, style: .plain, target: self, action: #selector(settingsBarButtonTapped))
     }()
     
     override func loadView() {
         view = ballView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ballView.messageLabel.text = callToShakeText
+        ballView.messageLabel.text = viewModel.callToShakeText
         setupNavigationBar()
     }
     
     private func setupNavigationBar() {
-        navigationController?.navigationBar.tintColor = .gray
+        coordinator?.navigationController.navigationBar.tintColor = .gray
         navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
     
@@ -41,48 +41,32 @@ class BallViewController: UIViewController {
         }
     }
     
-    private func getRandomAnswer() -> String {
-        if let storedAnswer = StoredAnswers.load().randomElement() {
-            return storedAnswer
-        } else {
-            return defaultAnswers.randomElement()!
-        }
-    }
-    
     
     // MARK: - User interaction methods
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            updateMessageLabel(message: "")
-            SwiftSpinner.show("Loading...")
+            updateMessageLabel(message: viewModel.motionBeganText)
+            SwiftSpinner.show(viewModel.loadingText)
         }
     }
-
+    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            let url = URL(string: ballApiURL)
-            DataFetcher.get(from: url!) { (result: Result<BallResponse, DataError>) in
-                switch result {
-                case .failure:
-                    
-                    self.updateMessageLabel(message: self.getRandomAnswer())
-                case .success(let results):
-                    self.updateMessageLabel(message: results.magic.answer)
-                }
+            viewModel.getRandomAnswer { answerR in
+                self.updateMessageLabel(message: answerR)
             }
             SwiftSpinner.hide()
             UIDevice.vibrate()
         }
     }
-
+    
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        updateMessageLabel(message: callToShakeText)
+        updateMessageLabel(message: viewModel.callToShakeText)
     }
     
     @objc func settingsBarButtonTapped(_ sender:UIButton!) {
-        let settingsViewController = SettingsViewController()
-        navigationController?.pushViewController(settingsViewController, animated: true)
+        coordinator?.moveToSettings()
     }
     
 }
