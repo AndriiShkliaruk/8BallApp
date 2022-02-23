@@ -7,7 +7,9 @@
 
 import Foundation
 
-class NetworkService: NetworkDataProvider {
+struct NetworkService: NetworkDataProvider {
+    static let ballApiURL = URL(string: "https://8ball.delegator.com/magic/JSON/question")!
+    
     func fetchData<T: Decodable>(from url: URL, completion: @escaping Completion<T>) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {

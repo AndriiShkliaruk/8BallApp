@@ -7,16 +7,18 @@
 
 import Foundation
 
-class SettingsViewModel {
-    var answers: [String]
+struct SettingsViewModel {
     let constants = Constants.Settings.self
-    private let userDefaultsService = UserDefaultsService()
     
-    init() {
-        answers = userDefaultsService.loadData(forKey: Constants.userDefaultsKey)
+    var answers: [String]
+    let userDefaultsProvider: UserDefaultsProvider
+    
+    init(userDefaultsProvider: UserDefaultsProvider) {
+        self.userDefaultsProvider = userDefaultsProvider
+        answers = userDefaultsProvider.loadData(forKey: Constants.userDefaultsKey)
     }
     
     func saveAnswers() {
-        userDefaultsService.saveData(answers, forKey: Constants.userDefaultsKey)
+        userDefaultsProvider.saveData(answers, forKey: Constants.userDefaultsKey)
     }
 }

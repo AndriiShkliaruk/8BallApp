@@ -10,8 +10,19 @@ import UIKit
 class SettingsViewController: UIViewController {
     private let cellIdentifier = "answerCell"
     private let tableView = UITableView()
-    private let viewModel = SettingsViewModel()
-    var coordinator: MainCoordinator?
+    var viewModel: SettingsViewModel
+    let coordinator: MainCoordinator
+    
+    init(viewModel: SettingsViewModel, coordinator: MainCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var addBarButtonItem: UIBarButtonItem = {
         return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBarButtonTapped))
@@ -45,7 +56,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - User interaction methods
     
-    @objc func addBarButtonTapped(_ sender:UIButton!) {
+    @objc func addBarButtonTapped(_ sender: UIButton) {
         let alert = UIAlertController(title: viewModel.constants.alertTitleText, message: nil, preferredStyle: .alert)
         alert.addTextField { answerTextField in
             answerTextField.placeholder = self.viewModel.constants.alertPlaceholderText
@@ -72,17 +83,14 @@ extension SettingsViewController: UITableViewDelegate {
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return viewModel.answers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        if !viewModel.answers.isEmpty {
-            var content = cell.defaultContentConfiguration()
-            content.text = viewModel.answers[indexPath.row]
-            cell.contentConfiguration = content
-        }
+        var content = cell.defaultContentConfiguration()
+        content.text = viewModel.answers[indexPath.row]
+        cell.contentConfiguration = content
         
         return cell
     }

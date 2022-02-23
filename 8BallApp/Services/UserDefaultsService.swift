@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserDefaultsService: UserDefaultsProvider {
+struct UserDefaultsService: UserDefaultsProvider {
     func loadData(forKey key: String) -> [String] {
         if let data = UserDefaults.standard.array(forKey: key) as? [String] {
             return data

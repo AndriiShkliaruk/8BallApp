@@ -7,18 +7,16 @@
 
 import Foundation
 
-class BallViewModel {
+struct BallViewModel {
     let callToShakeText = Constants.callToShakeText
     let settingsIconName = Constants.gearIconName
-    let motionBeganText = Constants.motionBeganText
     let loadingText = Constants.loadingText
     
-    private let networkService = NetworkService()
-    private let userDefaultsService = UserDefaultsService()
+    let networkDataProvider: NetworkDataProvider
+    let userDefaultsProvider: UserDefaultsProvider
     
     func getRandomAnswer(complition: @escaping (String) -> Void) {
-        let url = URL(string: Constants.ballApiURL)
-        networkService.fetchData(from: url!) { (result: Result<BallResponse, DataError>) in
+        networkDataProvider.fetchData(from: NetworkService.ballApiURL) { (result: Result<BallResponse, DataError>) in
             switch result {
             case .failure:
                 complition(self.getAnswerFromDefaults())
@@ -29,7 +27,7 @@ class BallViewModel {
     }
     
     private func getAnswerFromDefaults() -> String {
-        if let storedAnswer = userDefaultsService.loadData(forKey: Constants.userDefaultsKey).randomElement() {
+        if let storedAnswer = userDefaultsProvider.loadData(forKey: Constants.userDefaultsKey).randomElement() {
             return storedAnswer
         } else {
             return Constants.defaultAnswers.randomElement()!

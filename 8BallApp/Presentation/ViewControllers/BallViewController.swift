@@ -11,8 +11,19 @@ import SwiftSpinner
 
 class BallViewController: UIViewController {
     private let ballView = BallView()
-    private var viewModel = BallViewModel()
-    var coordinator: MainCoordinator?
+    let viewModel: BallViewModel
+    let coordinator: MainCoordinator
+    
+    init(viewModel: BallViewModel, coordinator: MainCoordinator) {
+        self.viewModel = viewModel
+        self.coordinator = coordinator
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var settingsBarButtonItem: UIBarButtonItem = {
         let icon = UIImage(systemName: viewModel.settingsIconName)
@@ -31,7 +42,7 @@ class BallViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        coordinator?.navigationController.navigationBar.tintColor = .gray
+        coordinator.navigationController.navigationBar.tintColor = .gray
         navigationItem.rightBarButtonItem = settingsBarButtonItem
     }
     
@@ -46,29 +57,28 @@ class BallViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            updateMessageLabel(message: viewModel.motionBeganText)
+            updateMessageLabel(message: "")
             SwiftSpinner.show(viewModel.loadingText)
         }
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            viewModel.getRandomAnswer { answerR in
-                self.updateMessageLabel(message: answerR)
-            }
-            SwiftSpinner.hide()
-            UIDevice.vibrate()
+        guard motion == .motionShake else { return }
+        viewModel.getRandomAnswer { answer in
+            self.updateMessageLabel(message: answer)
         }
+        SwiftSpinner.hide()
+        UIDevice.vibrate()
+        
     }
     
     override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         updateMessageLabel(message: viewModel.callToShakeText)
     }
     
-    @objc func settingsBarButtonTapped(_ sender:UIButton!) {
-        coordinator?.moveToSettings()
+    @objc func settingsBarButtonTapped(_ sender: UIButton) {
+        coordinator.moveToSettings()
     }
-    
 }
 
 extension UIDevice {
